@@ -1,12 +1,13 @@
 {
-  "name": "human-comparator",
-  "private": true,
+  "name": "human-scale-explorer",
   "version": "0.1.0",
+  "description": "Interactive 3D comparisons of lifetime consumption, waste, and resource use at human scale.",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy:check": "npm run build"
   },
   "dependencies": {
     "@react-three/drei": "^9.122.0",

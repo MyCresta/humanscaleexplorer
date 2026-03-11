@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#ecfeff" />
+      <stop offset="50%" stop-color="#e0f2fe" />
+      <stop offset="100%" stop-color="#f8fafc" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e" />
+      <stop offset="100%" stop-color="#164e63" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1010" cy="120" r="180" fill="#99f6e4" opacity="0.28" />
+  <circle cx="150" cy="550" r="220" fill="#bfdbfe" opacity="0.35" />
+  <rect x="120" y="398" width="120" height="120" rx="20" fill="url(#accent)" />
+  <rect x="270" y="320" width="120" height="198" rx="20" fill="#0f766e" opacity="0.88" />
+  <rect x="420" y="220" width="120" height="298" rx="20" fill="#164e63" opacity="0.92" />
+  <text x="120" y="160" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif" font-size="78" font-weight="700">
+    Human Scale Explorer
+  </text>
+  <text x="120" y="232" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="34">
+    Interactive 3D comparisons of lifetime consumption,
+  </text>
+  <text x="120" y="278" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="34">
+    waste, and resource use at human scale.
+  </text>
+</svg>

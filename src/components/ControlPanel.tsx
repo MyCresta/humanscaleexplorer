@@ -6,6 +6,7 @@ import {
   type MainCategoryId,
   locations
 } from "../model";
+import { siteConfig } from "../config/site";
 import { formatAdaptive, formatLiters, formatMass } from "../utils/format";
 
 type ControlPanelProps = {
@@ -46,11 +47,12 @@ type ControlPanelProps = {
 
 export function ControlPanel(props: ControlPanelProps) {
   const confidenceClass = `confidence-tag confidence-${props.selectedCategory.confidence}`;
+  const isLowConfidence = props.selectedCategory.confidence === "low";
 
   return (
     <section className="panel">
-      <h1>Human Consumption/Waste Comparator</h1>
-      <p className="sub">Source-backed estimates with optional breakdowns per category.</p>
+      <h1>{siteConfig.name}</h1>
+      <p className="sub">Interactive estimates with linked sources, confidence labels, and 3D scale comparisons.</p>
 
       <section className="panel-group panel-group-controls">
         <h2>Profile</h2>
@@ -128,6 +130,11 @@ export function ControlPanel(props: ControlPanelProps) {
         </div>
         <div>Confidence: <span className={confidenceClass}>{props.selectedCategory.confidence.toUpperCase()}</span></div>
         <div>Source: <a href={props.selectedCategory.sourceUrl} target="_blank" rel="noreferrer">{props.selectedCategory.sourceLabel}</a></div>
+        {isLowConfidence && (
+          <div className="confidence-callout">
+            Low-confidence category: this estimate is kept in the app for exploration, but it relies on weaker assumptions or proxy data.
+          </div>
+        )}
         {props.flushComparison && (
           <>
             <div>Comparison ({props.flushComparison.outputLabel}): {formatLiters(props.flushComparison.outputLiters)} ({formatMass(props.flushComparison.outputMassKg)})</div>
@@ -137,6 +144,19 @@ export function ControlPanel(props: ControlPanelProps) {
         )}
         {props.selectedCategory.notes && <div>Note: {props.selectedCategory.notes}</div>}
       </div>
+
+      <details className="panel-group methodology" open>
+        <summary>Methodology & Confidence</summary>
+        <p>
+          Estimates combine a base annual value with age, gender, and regional multipliers, then scale that to a lifetime total.
+        </p>
+        <p>
+          The 3D volume is derived from either liquid density or bulk density, so solid materials are shown with packing/air gaps rather than as perfectly compact blocks.
+        </p>
+        <p>
+          Confidence tags indicate how directly the estimate maps to a source. <strong>Low</strong> means the category remains visible, but should be treated as exploratory rather than precise.
+        </p>
+      </details>
     </section>
   );
 }

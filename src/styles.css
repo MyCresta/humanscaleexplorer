@@ -234,6 +234,37 @@ select {
   color: var(--tag-low-text);
 }
 
+.confidence-callout {
+  padding: 0.6rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--tag-low-text) 24%, var(--border));
+  background: color-mix(in srgb, var(--tag-low-bg) 72%, var(--surface));
+  color: var(--text);
+}
+
+.methodology {
+  gap: 0.7rem;
+}
+
+.methodology summary {
+  cursor: pointer;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--subtext);
+  text-transform: uppercase;
+  font-family: 'Consolas', 'SFMono-Regular', Menlo, monospace;
+  list-style: none;
+}
+
+.methodology summary::-webkit-details-marker {
+  display: none;
+}
+
+.methodology p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
 @media (max-width: 920px) {
   .app {
     grid-template-columns: 1fr;
